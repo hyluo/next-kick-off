@@ -17,5 +17,17 @@ export default ({ children }) => (
       ))}
     </nav>
     <div> {children} </div>
+    <style global jsx>
+      {`
+        body {
+          font-family: Helvetica, sans-serif;
+        }
+        nav {
+          text-align: left;
+          background-color: #000;
+          color: #fff;
+        }
+      `}
+    </style>
   </main>
 );
