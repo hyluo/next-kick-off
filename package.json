@@ -20,6 +20,7 @@
   "homepage": "https://github.com/hyluo/next-kick-off#readme",
   "dependencies": {
     "husky": "^0.14.3",
+    "isomorphic-fetch": "^2.2.1",
     "lint-staged": "^7.0.5",
     "next": "^6.0.0",
     "prettier": "^1.12.1",
@@ -36,8 +37,8 @@
       "git add"
     ],
     "src/**/*.{js,jsx,json,css}": [
-    "prettier --single-quote --write",
-    "git add"
+      "prettier --single-quote --write",
+      "git add"
     ]
   }
 }
