@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,10 @@
     "react-dom": "^16.3.2"
   },
   "lint-staged": {
+    "pages/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ],
     "src/**/*.{js,jsx,json,css}": [
     "prettier --single-quote --write",
     "git add"
