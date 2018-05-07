@@ -2,6 +2,24 @@ import { Component } from 'react';
 import Page from '../components/pages';
 import fetch from '../lib/fetch';
 import Link from 'next/link';
+
+const Comment = ({ comment }) => (
+  <div className="comment">
+    <div dangerouslySetInnerHTML={{ __html: comment.content }} />
+    <div>
+      <Link href={`/user?id=${comment.user}`}>
+        <a>{comment.user}</a>
+      </Link>| {comment.time_ago}
+    </div>
+    <style jsx>{`
+      .comment {
+        margin: 15px 0 15px 0;
+        border-top: 1px solid grey;
+      }
+    `}</style>
+  </div>
+);
+
 const Comments = ({ item }) => (
   <div>
     <h2>
@@ -13,7 +31,17 @@ const Comments = ({ item }) => (
       <Link href={`/user?id=${item.user}`}>
         <a>{item.user}</a>
       </Link>
+      <span> | </span>
+      <span> {item.points} points </span>
     </div>
+    <div>{item.comments.map(c => <Comment key={c.id} comment={c} />)}</div>
+    <style jsx>
+      {`
+         {
+          padding: 5px;
+        }
+      `}
+    </style>
   </div>
 );
 export default class extends Component {
