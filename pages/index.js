@@ -27,12 +27,28 @@ const Feed = ({ feed }) => (
         </span>
       </div>
     </span>
+    <style jsx>
+      {`
+        li {
+          list-style-type: none;
+          position: relative;
+          padding: 20px 30px 20px;
+        }
+      `}
+    </style>
   </li>
 );
 
 const Feeds = ({ feeds, url: { pathname, query } }) => (
   <div>
     <ul>{feeds.map(f => <Feed key={f.id} feed={f} />)}</ul>
+    <style jsx>
+      {`
+        ul {
+          padding: 0;
+        }
+      `}
+    </style>
   </div>
 );
 export default class extends Component {
