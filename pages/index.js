@@ -18,6 +18,13 @@ const Feed = ({ feed }) => (
             <a>{feed.user}</a>
           </Link>
         </span>
+
+        {feed.user && <span> | </span>}
+        <span>
+          <Link href={`/comments?id=${feed.id}`}>
+            <a> {feed.comments_count || 0} comments </a>
+          </Link>
+        </span>
       </div>
     </span>
   </li>
