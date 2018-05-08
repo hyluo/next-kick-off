@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
+import Manifest from 'next-manifest/manifest';
 
 export default class extends Document {
   static getInitialProps({ renderPage }) {
@@ -14,6 +15,7 @@ export default class extends Document {
         <Head>
           <link rel="icon" href="/static/favicon.ico" />
           <title> welcome with Next.js</title>
+          <Manifest themeColor="#000000" />
         </Head>
         <body>
           <Main />

@@ -1,0 +1,25 @@
+const {createServer} = require('http')
+const next = require('next')
+
+const app = next({
+    dev: process.env.NODE_ENV != 'production'
+})
+
+const handle = app.getRequestHandler()
+const port = 3000
+
+app.prepare().then(() => {
+    createServer((req, res) => {
+        if(req.url.startsWith('/static')) {
+            app.serveStatic(req, res, `./${req.url}`)
+        } else {
+            handle(req, res, req.url)
+        }
+    }).listen(port, err => {
+        if(err){
+            throw err
+        }
+
+        console.log(`> ready on http://localhost:${port}`)
+    })
+})
